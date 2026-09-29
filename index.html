@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela Sin Miedo</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#fff8f0;color:#263247}
+header{background:linear-gradient(135deg,#ff7043,#ffc857);color:white;text-align:center;padding:42px 18px}
+header h1{font-size:42px;margin:10px} header p{max-width:700px;margin:auto;line-height:1.6}
+nav{position:sticky;top:0;background:white;padding:10px;text-align:center;box-shadow:0 2px 12px #0002;z-index:5}
+nav a{display:inline-block;padding:9px 12px;color:#e45f3f;text-decoration:none;font-weight:bold}
+main{max-width:1000px;margin:auto;padding:20px}
+section{background:white;margin:18px 0;padding:25px;border-radius:22px;box-shadow:0 7px 25px #0001}
+h2{color:#e45f3f}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.card{padding:18px;border:1px solid #eee0d5;border-radius:17px;background:#fffdfb}
+.icon{font-size:35px}.green{border-left:7px solid #50b995}.yellow{border-left:7px solid #efbd45}.red{border-left:7px solid #df655d}
+button{border:0;padding:12px 18px;border-radius:13px;background:#e76645;color:white;font-weight:bold;cursor:pointer}
+.choice{padding:11px;margin:7px 0;background:#fff;border:1px solid #ddd;border-radius:10px;cursor:pointer}
+.choice:hover{border-color:#e76645}.box{background:#fff5ec;padding:17px;border-radius:15px;margin:12px 0}
+.result{display:none;margin-top:15px;padding:15px;background:#edf9f3;border-radius:12px}
+footer{text-align:center;padding:30px;color:#777}
+</style>
+</head>
+<body>
+<header>
+<div style="font-size:52px">🏫🛡️🌈</div>
+<h1>Escuela Sin Miedo</h1>
+<p>Aprende a reconocer el bullying, cuidar a los demás y construir una convivencia basada en respeto, inclusión y diálogo.</p>
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a><a href="#semaforo">Semáforo</a><a href="#redes">Redes</a>
+<a href="#ayuda">Ayudar</a><a href="#juego">Juego</a><a href="#evaluacion">Evaluación</a>
+</nav>
+
+<main>
+<section id="inicio">
+<h2>🤝 Una escuela segura la construimos entre todos</h2>
+<p>El bullying puede afectar la convivencia escolar. Reconocer una situación y pedir ayuda son pasos importantes para afrontarla.</p>
+<button onclick="document.getElementById('semaforo').scrollIntoView()">Comenzar</button>
+</section>
+
+<section id="semaforo">
+<h2>🚦 Semáforo de la convivencia</h2>
+<div class="grid">
+<div class="card green"><div class="icon">🟢</div><h3>Verde</h3><p>Escuchar, respetar, incluir y resolver desacuerdos mediante el diálogo.</p></div>
+<div class="card yellow"><div class="icon">🟡</div><h3>Amarillo</h3><p>Burlas repetidas, exclusión o conflictos que comienzan a afectar la convivencia. Es buena idea buscar orientación.</p></div>
+<div class="card red"><div class="icon">🔴</div><h3>Rojo</h3><p>Acoso, amenazas, agresiones o situaciones digitales dañinas. Busca apoyo de un adulto responsable.</p></div>
+</div>
+</section>
+
+<section id="redes">
+<h2>📱 Bullying y redes sociales</h2>
+<div class="grid">
+<div class="card"><div class="icon">💬</div><h3>Piensa antes de publicar</h3><p>Considera si tu mensaje respeta a la otra persona.</p></div>
+<div class="card"><div class="icon">🚫</div><h3>No compartas daño</h3><p>No difundas capturas, imágenes o comentarios usados para perjudicar a alguien.</p></div>
+<div class="card"><div class="icon">🧑‍🏫</div><h3>Busca apoyo</h3><p>Si algo te preocupa, cuéntaselo a un adulto de confianza.</p></div>
+</div>
+</section>
+
+<section id="ayuda">
+<h2>💛 ¿Cómo ayudar?</h2>
+<div class="grid">
+<div class="card"><h3>👂 Escucha</h3><p>Escucha sin burlarte ni culpar.</p></div>
+<div class="card"><h3>🤝 Acompaña</h3><p>Apoya a la persona para que pueda buscar ayuda.</p></div>
+<div class="card"><h3>🗣️ Comunica</h3><p>Si la situación es preocupante, informa a un adulto responsable.</p></div>
+<div class="card"><h3>🌱 Incluye</h3><p>Ayuda a crear espacios donde todos puedan participar.</p></div>
+</div>
+</section>
+
+<section id="juego">
+<h2>🎮 Juego: ¿Qué harías?</h2>
+<div class="box"><b>Situación:</b> Ves que varios estudiantes dejan fuera repetidamente a un compañero.</div>
+<div class="choice" onclick="jugar(this,true)">A. No apoyo la exclusión y busco ayuda si continúa.</div>
+<div class="choice" onclick="jugar(this,false)">B. Me río para formar parte del grupo.</div>
+<div class="choice" onclick="jugar(this,false)">C. Lo publico en redes.</div>
+<p id="mensaje"></p>
+</section>
+
+<section id="evaluacion">
+<h2>🧠 Evaluación rápida</h2>
+<div class="box"><b>1. ¿Qué favorece la convivencia?</b><br>
+<label><input type="radio" name="q1" value="1"> Respeto e inclusión.</label><br>
+<label><input type="radio" name="q1" value="0"> Exclusión.</label></div>
+<div class="box"><b>2. Si una situación te preocupa, puedes:</b><br>
+<label><input type="radio" name="q2" value="1"> Buscar a un adulto de confianza.</label><br>
+<label><input type="radio" name="q2" value="0"> Guardarlo siempre en secreto.</label></div>
+<div class="box"><b>3. En redes es responsable:</b><br>
+<label><input type="radio" name="q3" value="1"> No compartir contenido dañino.</label><br>
+<label><input type="radio" name="q3" value="0"> Difundirlo.</label></div>
+<button onclick="calificar()">Ver resultado</button>
+<div id="resultado" class="result"></div>
+</section>
+</main>
+
+<footer><b>Escuela Sin Miedo 🛡️</b><br>Respeto • Inclusión • Diálogo • Ayuda</footer>
+
+<script>
+function jugar(el,ok){
+document.querySelectorAll('#juego .choice').forEach(x=>x.style.outline='none');
+el.style.outline=ok?'3px solid #50b995':'3px solid #df655d';
+document.getElementById('mensaje').textContent=ok?'✅ Buena decisión. Ayuda a cuidar la convivencia.':'💡 Busca una opción que no aumente el daño y permita pedir ayuda.';
+}
+function calificar(){
+let p=0,n=0;
+for(let i=1;i<=3;i++){let r=document.querySelector('input[name=q'+i+']:checked');if(r){n++;p+=Number(r.value)}}
+let x=document.getElementById('resultado');x.style.display='block';
+x.innerHTML=n<3?'⚠️ Responde las 3 preguntas.':'🎉 Resultado: <b>'+p+'/3</b>. '+(p===3?'¡Excelente!':'Revisa la información y vuelve a intentarlo.');
+}
+</script>
+</body>
+</html>
